@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Binary Decoder Circuit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/circuit.js"></script>
+    <script src="js/decoder.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/bd52c29e06.js" crossorigin="anonymous"></script>
+</head>
+
+<body onload="initDecoder()">
+    <div class="container">
+        <div id="decoder" class="justify-center flex-column">
+            <div id="nav">
+                <a href="index.html" class="nav-item">Practice Binary Decoder</a>
+                <div class="nav-item">Draw Binary Decoder
+                    <button id="help-button">
+                        <i class="fa-regular fa-question-circle"></i>
+                    </button>
+                </div>
+            </div>
+            <canvas id="myCanvas" width="700" height="470"></canvas>
+
+            <div class="decoder-controls">
+                <div class="input-group">
+                    <label for="input-size">Number of Inputs:</label>
+                    <select id="input-size" onchange="updateDecoderInputs()">
+                        <option value="2">2 Inputs (2-to-4)</option>
+                        <option value="3">3 Inputs (3-to-8)</option>
+                        <option value="4">4 Inputs (4-to-16)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="term-type">Term Type:</label>
+                    <select id="term-type">
+                        <option value="minterm">Minterm</option>
+                        <option value="maxterm">Maxterm</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="term-value">Term Value:</label>
+                    <input type="number" id="term-value" min="0" max="15">
+                </div>
+            </div>
+
+            <button id="draw-button" class="btn" onclick="drawDecoder()">DRAW DECODER</button>
+        </div>
+    </div>
+</body>
+
+<dialog class="modal" id="modal">
+    <button class="close-button">
+        <i class="fa-solid fa-x"></i>
+    </button>
+    <p style="text-decoration: underline;color: rgb(255, 202, 51);">Binary Decoder Circuit</p>
+    <p style="font-size: 2rem;">Draw binary decoder circuits with 2, 3, or 4 inputs</p>
+    <ul class="instructions">
+        <li>Select the number of inputs (2, 3, or 4)</li>
+        <li>Click "Draw Decoder" to generate the circuit</li>
+        <li>2 inputs: values 0-3</li>
+        <li>3 inputs: values 0-7</li>
+    </ul>
+</dialog>
+
+<script>
+    const modal = document.querySelector(".modal");
+    const openModal = document.querySelector("#help-button");
+    const closeModal = document.querySelector(".close-button");
+
+    openModal.addEventListener("click", () => {
+        modal.showModal();
+    });
+
+    closeModal.addEventListener("click", () => {
+        modal.close();
+    });
+</script>
+
+</html> 
