@@ -1,14 +1,12 @@
 const canvas = document.getElementById("myCanvas");
-let ctx = null;
-
-if (canvas) {
-    ctx = canvas.getContext("2d");
-} else {
+let ctx = canvas ? canvas.getContext("2d") : null;
+if (!ctx) {
     console.error("Canvas not found! Make sure <canvas id='myCanvas'> exists in HTML.");
 }
 
 function basic24Decoder() {
     // Clear canvas
+    if (!ctx) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.font = "16px Arial";
     ctx.textAlign = "center";
@@ -88,6 +86,7 @@ function basic24Decoder() {
 function basic38Decoder() {
 
     // Clear canvas
+    if (!ctx) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.font = "16px Arial";
     ctx.textAlign = "center";
@@ -192,6 +191,7 @@ function checkAnswer(selectedButton) {
 
 function draw2Decoder() {
     // Clear only the decoder area, not the whole canvas
+    if (!ctx) return;
     ctx.clearRect(0, 0, 500, 300); // Adjust if needed
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -234,6 +234,7 @@ function draw2Decoder() {
 
 
 function drawNandGate() {
+    if (!ctx) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.font = "16px Arial";
     ctx.textAlign = "center";
@@ -268,6 +269,7 @@ let correctAnswer = ""; // Store correct answer globally
 
 function ordecoder38() {
     // Clear Canvas
+    if (!ctx) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.font = "16px Arial";
     ctx.textAlign = "center";
@@ -421,6 +423,7 @@ function ordecoder38() {
 
 function justorgate() {
     // Clear Canvas
+    if (!ctx) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.font = "16px Arial";
     ctx.textAlign = "center";
@@ -523,6 +526,7 @@ function justorgate() {
 
 function ordecoder39() {
     // Clear Canvas
+    if (!ctx) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.font = "16px Arial";
     ctx.textAlign = "center";
@@ -685,6 +689,7 @@ function ordecoder39() {
 
 function ordecoder24() {
     // Clear Canvas
+    if (!ctx) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.font = "16px Arial";
     ctx.textAlign = "center";
